@@ -1,67 +1,27 @@
-# www.spee.ch
+# Create Your Own Spee.ch!
 
-## About
+Google Meet link: https://meet.google.com/aex-ghqg-kcs
 
-Spee.ch is a web app that reads and publishes images and videos to and from the [LBRY](https://lbry.io/) blockchain.
+## Prerequisites
 
-`www.spee.ch` uses the [spee.ch](https://github.com/lbryio/spee.ch) server codebase, and it also uses the [spee.ch-components](http://github.com/lbryio/spee.ch-components) library.
-The goal of this project is to provide an example of how you can import and configure spee.ch to quickly and easily create your own spee.ch-like website.
+1. You will need the following tools installed:
 
-## Stack
+* [Node.js](https://nodejs.org/en/download/)
+* NPM (should come installed with node)
+* [Git](https://git-scm.com/downloads)
+* Curl
+* Tmux
+* Unzip
 
-The spee.ch stack is MySQL, Express.js, Node.js, and React.js.  Spee.ch also runs `lbrynet` on its server, and it uses the `lbrynet` api to make requests -- such as `publish`, `create_channel`, and `get` -- on the `LBRY` network.
-  
-Spee.ch also runs a sync tool, which decodes blocks from the `LBRY` blockchain as they are mined, and stores the information in mysql.  It stores all claims in the `Claims` table, and all channel claims in the `Certificates` table.
-
-## Quick start
-
-### Preparing your environment
-
-Start mysql
-
-  * install mysql if needed
-  * create a database
-  * save the `database`, `username`, and `password` someplace handy
-  
-Start lbry
-
-  * install the [`lbry`](https://github.com/lbryio/lbry) daemon
-  * start the `lbry` daemon
-  * retrieve an address from the daemon and send your wallet a couple credits (or join us in the [#speech discord channel](https://discord.gg/YjYbwhS) and we will send you a few)
-  
-Clone this repo
+2. Make sure npm is up-to-date
 ```
-$ git clone https://github.com/lbryio/www.spee.ch.git <name of your project>
+$ npm update
 ```
 
-Configure your project
+3. Setup a Webserver to serve Spee.ch from Port 3000
 
-```
-$ cd <name of your project>
-$ npm run configure
-```
-
-### Starting the app
-
-install dependencies
-```
-npm install
-```
-build & start server
-```
-npm run start:dev
-```
-### View in browser
-visit [localhost:3000](http://localhost:3000) in your browser
-
-have fun!
-
-### (optional) add custom components and update the styles
-
-  * create custom components by creating React components in `src/views/` (further instructions coming soon)
-  * update the css by changing the files in `public/assets/css/` (further instructions and refactor coming soon) 
-
-### (optional) Syncing the full blockchain
-Start the `spee.ch-sync` tool available at [billbitt/spee.ch-sync](https://github.com/billbitt/spee.ch-sync)
-
-This is not necessary, but highly reccomended.  It will decode the blocks of the `LBRY` blockchain and add the claims information to your database's tables
+    1. If you are using a server provided by lbry, we will have caddy installed already
+    2. If you are using your own server, make sure to have a web server installed and set up to serve from port 3000
+             1. 
+                    a. (insert directions for certbot before installing)
+                    b. [Install Nginx](http://nginx.org/en/docs/install.html)
